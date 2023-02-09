@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   *{
@@ -22,3 +22,49 @@ export const Screen = styled.div`
 
 `
 
+export const Flex = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  ${(props) => css`
+  flex-direction: ${props.direction || "column"};
+  align-items: ${props.align || "center"};
+  justify-content: ${props.justify || "center"};
+  gap: ${(props => props.gap || "12px")};
+  pading: ${props.padding || ""}; 
+  `}
+
+`;
+
+export const Typography = styled.p`
+${(props) => css`
+  font-style: ${props.style || 'normal'};
+  font-weight: ${props.weight || '500'};
+  font-size: ${props.size || '18px'};
+  line-height: ${props.height || '21px'};
+  color: ${props.theme.textPrimary}
+`}
+  
+`;
+
+export const Spacer = styled.div`
+  width: 100%;
+  margin: ${(props) => props.margin || '20px'};
+ 
+`
+
+export const Button = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover{
+    opacity: 0.8;
+  }
+
+  &:active{
+    opacity:0.6;
+  }
+
+`
